@@ -168,17 +168,17 @@ void Settings_Initialise(std::string file)
 
 int main(int argc, char* argv[])
 {
+    std::string argv_str(argv[0]);
+    std::string settings_file = argv_str + "/../settings.ini";
+
+    Settings_Initialise(settings_file);
+
     if (argc < 2) {
         std::cout << dye::red("There are no files to convert. Drag and drop files onto the program to start converting.") << std::endl;
         system("pause");
         return 0;
     }
     
-    std::string argv_str(argv[0]);
-    std::string settings_file = argv_str + "/../settings.ini";
-
-    Settings_Initialise(settings_file);
-
     FreeImage_Initialise();
 
     for (int i = 0; i < argc-1; i++)
